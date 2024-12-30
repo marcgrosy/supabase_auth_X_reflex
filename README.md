@@ -85,3 +85,26 @@ reflex run
 - [Supabase Python Docs](https://supabase.com/docs/reference/python/start)
 
 The Discord of both Supabase and Reflex are very active and the mods are very helpful.
+
+## Repository Structure and Code Overview
+
+The main application code is located in the `supabase_auth_X_reflex/` directory. Here's how the code is organized:
+
+### Key Files
+
+- `supabase_auth_X_reflex.py`: The main entry point of the application. It determines which component to show based on the authentication state.
+- `auth_state.py`: Manages the authentication state using Reflex's State class.
+- `auth_component.py`: The login/signup UI component shown to unauthenticated users.
+- `main_app_component.py`: The protected content shown to authenticated users (currently contains dummy content).
+
+### Application Flow
+
+The app follows a simple authentication flow:
+
+1. When a user visits the site, the app checks for a user_id in the AuthState
+2. If no user_id is found (user not authenticated):
+   - The `auth_component` is displayed
+   - User can choose to login with email/password or Google
+3. If user_id exists (user is authenticated):
+   - The `mainApp` component is displayed
+   - Currently shows placeholder content for demonstration
