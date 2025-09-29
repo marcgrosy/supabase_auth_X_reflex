@@ -314,6 +314,7 @@ class AuthState(rx.State):
         else:
             # pass
             self.clear_user_data()
+            yield rx.redirect("/")
 
     def clear_user_data(self):
         self.user_email = None
